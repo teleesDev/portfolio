@@ -164,6 +164,9 @@ section{padding-block:clamp(72px,9vw,112px)}
 .today{padding-top:clamp(48px,6vw,72px);border-top:1px solid var(--line)}
 .today p{font:500 clamp(1.15rem,2vw,1.4rem)/1.45 var(--display);max-width:48ch;margin-top:8px}
 @media (max-width:600px){.chead{grid-template-columns:1fr}.clogo{width:56px;height:56px}}
+/* justified reading text */
+.hero .role,.pinfo .one,.pinfo li,.ptext p,.etext p,.chead .lead{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto}
+@media (max-width:600px){.hero .role{text-align:left}}
 /* scroll reveal: each piece fades up when it reaches the viewport (works inside any frame) */
 .rv-on .rv{opacity:0;translate:0 26px;transition:opacity .7s ease,translate .8s cubic-bezier(.2,.7,.2,1),scale .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0ms)}
 .rv-on .ph.rv{translate:0 60px;scale:.9}
@@ -313,8 +316,8 @@ dialog::backdrop{background:rgba(10,12,14,.88)}
     <div class="skills" aria-label="Skills">
       <div class="skill"><h3>Languages</h3><ul><li class="k">Python</li><li>SQL</li><li>C++</li><li>VB.NET</li><li>VBA</li><li>JavaScript</li><li>HTML</li><li>CSS</li></ul></div>
       <div class="skill"><h3>Data &amp; AI</h3><ul><li class="k">pandas</li><li class="k">scikit-learn</li><li>NumPy</li><li>XGBoost</li><li>mBERT</li><li>sentence-transformers</li><li>LLMs (Ollama)</li><li>RegEx</li></ul></div>
-      <div class="skill"><h3>Backend &amp; databases</h3><ul><li class="k">FastAPI</li><li>REST APIs</li><li>System integration</li><li>MySQL</li><li>SQL Server</li><li>SQLite</li><li>Relational modeling</li></ul></div>
-      <div class="skill"><h3>Tools &amp; infrastructure</h3><ul><li class="k">Git</li><li>Automated testing</li><li>RPA</li><li>Scrum</li><li>Linux</li><li>Windows</li><li>Networking</li></ul></div>
+      <div class="skill"><h3>Backend &amp; Databases</h3><ul><li class="k">FastAPI</li><li>REST APIs</li><li>System integration</li><li>MySQL</li><li>SQL Server</li><li>SQLite</li><li>Relational modeling</li></ul></div>
+      <div class="skill"><h3>Tools &amp; Infrastructure</h3><ul><li class="k">Git</li><li>Automated testing</li><li>RPA</li><li>Scrum</li><li>Linux</li><li>Windows</li><li>Networking</li></ul></div>
     </div>
   </div>
 </header>
@@ -485,7 +488,7 @@ $('#projects').addEventListener('click', e => {
 });
 
 /* ---------- journey ---------- */
-const ALT = {'mackenzie':'With my brother, a lawyer, on my first day of Law school at Mackenzie','halo-team':'Halo Digit team at the office','halo-party':'Halo Digit team at a get-together','halo-duo':'With a colleague from Halo Digit','halo-kit':'Welcome kit with my Halo Digit badge','halo-noc':'The monitoring room on my first day','halo-room':'A room full of cables waiting to be organized','halo-helmet':'On site with a safety helmet','halo-patch':'Punching down a patch panel','halo-rack':'Organizing a network rack','halo-crimp':'Crimping cables on site','halo-bench':'Workbench with crimpers and connectors','halo-minipcs':'Mini PCs prepared for deployment','halo-shelf':'Parts shelf at Halo Digit','halo-iso':'ISO 9001 and 20000 operations binder with my name','halo-desk':'My workstation at Halo Digit','hw-coffee':'Coffee with the development team','hw-festa':'Festa Junina at Huawei','hw-dinner':'Lunch with the Chinese development team','hw-brazil':'The team in Brazil jerseys','hw-office':'With colleagues at the Huawei office','hw-outdoor':'With colleagues outside the office','hw-training':'Project finance management training, 2025','mackenzie-fci':'Faculty of Computing and Informatics building at Mackenzie'};
+const ALT = {'hw-desk':'My workstation at Huawei','mackenzie':'With my brother, a lawyer, on my first day of Law school at Mackenzie','halo-team':'Halo Digit team at the office','halo-party':'Halo Digit team at a get-together','halo-duo':'With a colleague from Halo Digit','halo-kit':'Welcome kit with my Halo Digit badge','halo-noc':'The monitoring room on my first day','halo-room':'A room full of cables waiting to be organized','halo-helmet':'On site with a safety helmet','halo-patch':'Punching down a patch panel','halo-rack':'Organizing a network rack','halo-crimp':'Crimping cables on site','halo-bench':'Workbench with crimpers and connectors','halo-minipcs':'Mini PCs prepared for deployment','halo-shelf':'Parts shelf at Halo Digit','halo-iso':'ISO 9001 and 20000 operations binder with my name','halo-desk':'My workstation at Halo Digit','hw-coffee':'Coffee with the development team','hw-festa':'Festa Junina at Huawei','hw-dinner':'Lunch with the Chinese development team','hw-brazil':'The team in Brazil jerseys','hw-office':'With colleagues at the Huawei office','hw-outdoor':'With colleagues outside the office','hw-training':'Project finance management training, 2025','mackenzie-fci':'Faculty of Computing and Informatics building at Mackenzie'};
 const HALO = [
   {k:'Where it all started', h:'My first team in tech', p:'Halo Digit was my starting point. The people here trusted me early, and I am grateful for it.', photos:['halo-team','halo-party','halo-duo']},
   {k:'Arrival', h:'Badge, notebook, cables', p:'The welcome kit, my first look at the operation and a room full of cables waiting to be organized.', photos:['halo-kit','halo-noc','halo-room']},
@@ -495,7 +498,7 @@ const HALO = [
   {k:'ISO 9001 & ISO/IEC 20000', h:'Getting certified', p:'The operations team was small, and I was one of the main people helping document our processes and prepare the company for both certifications.', photos:['halo-iso']},
 ];
 const HW = [
-  {k:'Joining the team', h:'My first months', p:'Getting to know the team I would work with for the next year.', photos:['hw-coffee','hw-festa']},
+  {k:'Joining the team', h:'My first months', p:'Getting to know the team I would work with for the next year, and setting up the desk where I spent most of my days.', photos:['hw-coffee','hw-festa','hw-desk']},
   {k:'English, every day', h:'Working with the Chinese development team', p:'Most developers on my team were Chinese, so meetings, code reviews and daily messages all happened in English. Explaining a bug or a business rule clearly in a second language became part of the job.', photos:['hw-dinner']},
   {k:'People', h:'Memories and the network I built', p:'Team lunches, trainings and the people I met across the company. Many of them are still in my network today.', photos:['hw-brazil','hw-office','hw-outdoor','hw-training']},
 ];
@@ -602,6 +605,7 @@ const navA = $$('.nav ul a');
 const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) navA.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#'+en.target.id)); }), {rootMargin:'-45% 0px -50% 0px'});
 ['work','education','certificates','experience'].forEach(id => io.observe(document.getElementById(id)));
 
+if (!document.documentElement.lang) document.documentElement.lang = 'en';
 /* ---------- résumé download (artifact viewer needs the downloads capability) ---------- */
 (() => {
   const btn = $('.cvdl'); if (!btn || !window.claude || !claude.use) return;
